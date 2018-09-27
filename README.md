@@ -1,12 +1,12 @@
-Role Name
+ec2-lambda
 =========
 
-A brief description of the role goes here.
+Create a lambda function within the AWS cloud
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Boto will be required for this role
 
 Role Variables
 --------------
@@ -16,7 +16,7 @@ A description of the settable variables for this role should go here, including 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+ This has a dependency on the ec2-iam role. This is required, so the lambda function can access AWS resources. You will be required to pass in 2 policy documents, JSON formatted, 1 to describe the trust relationship and 1 that contains the IAM policy.
 
 Example Playbook
 ----------------
@@ -30,9 +30,9 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+GPL
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Iain M. Conochie <iain@thargoid.co.uk>
