@@ -1,0 +1,17 @@
+---
+
+- name: Create lambda functions
+  lambda:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    region: "{{ region }}"
+    description: "{{ item.description }}"
+    zip_file: "{{ item.zip_file }}"
+    timeout: "{{ item.timeout | default('10') }}"
+    runtime: "{{ item.runtime | default('python3.7') }}"
+    role: "{{ item.role }}"
+    handler: "{{ item.handler }}"
+  loop: "{{ lambda_functions }}"
+  loop_control:
+    label: "{{ item.description }}"
+  register: new_lambda_functions
